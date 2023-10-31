@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <title>Online Shop</title>
+  </head>
+  <body>
+    <header>
+      <section class="navigation">
+        <div class="nav-container">
+          <div class="brand">
+            <div class="header-logo">
+              <a href="index.html">
+                <img src="../image/logo.jpg" alt="logo" style="height: 50px" />
+              </a>
+            </div>
+          </div>
+          <nav>
+            <div class="nav-mobile">
+              <a id="navbar-toggle" href="#"><span></span></a>
+            </div>
+            <ul class="nav-list">
+              <li>
+                <a href="#!" style="background-color: #f90a6e; color: #fff"
+                  >Category</a
+                >
+                <ul class="navbar-dropdown">
+                  <li>
+                    <a href="#!">Sass</a>
+                  </li>
+                  <li>
+                    <a href="#!">Less</a>
+                  </li>
+                  <li>
+                    <a href="#!">Stylus</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="Shop.html">Product</a>
+              </li>
+              <li>
+                <a href="about.html">About Us</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact Us</a>
+              </li>
+
+              <li>
+                <a href="FAQ.html">FAQ</a>
+              </li>
+
+              <li>
+                <a href="Blog.html">Blog</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  id="user-link"
+                  data-toggle="modal"
+                  data-target="#exampleModalCenter"
+                  ><i class="fa fa-user"></i
+                ></a>
+              </li>
+              <li class="cart">
+                <a href="cart.html" id="cart-link" class="cart-link">
+                  <i class="fa fa-shopping-cart"></i>
+                </a>
+              </li>
+              <li>
+                <a type="submit" data-toggle="modal" data-target="#searchModal"
+                  ><i class="fa fa-search" style="cursor: pointer"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Toggle the navbar dropdown on click
+        $(".nav-list > li").click(function () {
+          $(this).find(".navbar-dropdown").toggle();
+        });
+
+        // Toggle the mobile view on click
+        $("#navbar-toggle").click(function () {
+          $(".nav-list").toggleClass("active");
+        });
+
+        // Close the navbar dropdown and mobile view when clicking outside of them
+        $(document).on("click", function (event) {
+          if (
+            !$(event.target).closest(".nav-list").length &&
+            !$(event.target).closest("#navbar-toggle").length
+          ) {
+            $(".navbar-dropdown").hide();
+            $(".nav-list").removeClass("active");
+          }
+        });
+      });
+
+      (function ($) {
+        $(function () {
+          //  open and close nav
+          $("#navbar-toggle").click(function () {
+            $("nav ul").slideToggle();
+          });
+
+          // Hamburger toggle
+          $("#navbar-toggle").on("click", function () {
+            this.classList.toggle("active");
+          });
+
+          // If a link has a dropdown, add sub menu toggle.
+          $("nav ul li a:not(:only-child)").click(function (e) {
+            $(this).siblings(".navbar-dropdown").slideToggle("slow");
+
+            // Close dropdown when select another dropdown
+            $(".navbar-dropdown").not($(this).siblings()).hide("slow");
+            e.stopPropagation();
+          });
+
+          // Click outside the dropdown will remove the dropdown class
+          $("html").click(function () {
+            $(".navbar-dropdown").hide();
+          });
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>
